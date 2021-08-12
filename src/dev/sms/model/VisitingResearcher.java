@@ -1,17 +1,16 @@
 package dev.sms.model;
 
 import javax.persistence.Entity;
-import java.util.List;
 
 @Entity
-public class VisitingResearcher extends Instructor{
+public class VisitingResearcher extends Instructor {
     private float hourlySalary;
 
     public VisitingResearcher() {
     }
 
-    public VisitingResearcher(String name, long phoneNumber, List<Course> courses, float hourlySalary) {
-        super(name, phoneNumber, courses);
+    public VisitingResearcher(String name, String phoneNumber, float hourlySalary) {
+        super(name, phoneNumber);
         this.hourlySalary = hourlySalary;
     }
 

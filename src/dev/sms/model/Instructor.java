@@ -10,17 +10,16 @@ public class Instructor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private long phoneNumber;
+    private String phoneNumber;
     @OneToMany(mappedBy = "instructor")
     private List<Course> courses;
 
     public Instructor() {
     }
 
-    public Instructor(String name, long phoneNumber, List<Course> courses) {
+    public Instructor(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.courses = courses;
     }
 
     public long getId() {
@@ -36,11 +35,11 @@ public class Instructor {
         this.name = name;
     }
 
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -1,6 +1,13 @@
 package dev.sms.model;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Course {
@@ -11,15 +18,19 @@ public class Course {
     private String courseCode;
     private float creditScore;
     @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE) //pfffs
     private Instructor instructor;
+    @ManyToMany
+    private Set<Student> students = new HashSet<>();
 
     public Course() {
     }
 
-    public Course(String name, String courseCode, float creditScore) {
+    public Course(String name, String courseCode, float creditScore, Instructor instructor) {
         this.name = name;
         this.courseCode = courseCode;
         this.creditScore = creditScore;
+        this.instructor = instructor;
     }
 
     public String getName() {
@@ -50,8 +61,12 @@ public class Course {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override
@@ -61,6 +76,7 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", courseCode='" + courseCode + '\'' +
                 ", creditScore=" + creditScore +
+                ", instructor=" + instructor +
                 '}';
     }
 }

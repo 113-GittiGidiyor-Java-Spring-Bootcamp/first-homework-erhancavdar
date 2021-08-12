@@ -9,9 +9,6 @@ public class StudentController {
     StudentService studentService = new StudentService();
 
     public void save(Student student){
-        if(student==null){
-            System.out.println("Cannot be null.");
-        }
         studentService.save(student);
     }
 

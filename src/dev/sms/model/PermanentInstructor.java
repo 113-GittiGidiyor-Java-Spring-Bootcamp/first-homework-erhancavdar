@@ -1,7 +1,6 @@
 package dev.sms.model;
 
 import javax.persistence.Entity;
-import java.util.List;
 
 @Entity
 public class PermanentInstructor extends Instructor {
@@ -9,8 +8,9 @@ public class PermanentInstructor extends Instructor {
 
     public PermanentInstructor() {
     }
-    public PermanentInstructor(String name, long phoneNumber, List<Course> courses, float fixedSalary) {
-        super(name, phoneNumber, courses);
+
+    public PermanentInstructor(String name, String phoneNumber, float fixedSalary) {
+        super(name, phoneNumber);
         this.fixedSalary = fixedSalary;
     }
 

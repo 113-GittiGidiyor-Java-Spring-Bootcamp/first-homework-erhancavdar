@@ -2,6 +2,9 @@ package dev.sms.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,18 +17,17 @@ public class Student {
     private LocalDate birthday;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToMany
-    private Set<Course> courses;
+    @ManyToMany(mappedBy = "students")
+    private Set<Course> courses = new HashSet<>();
 
     public Student() {
     }
 
-    public Student(String name, String address, LocalDate birthday, Gender gender, Set<Course> courses) {
+    public Student(String name, String address, LocalDate birthday, Gender gender) {
         this.name = name;
         this.address = address;
         this.birthday = birthday;
         this.gender = gender;
-        this.courses = courses;
     }
 
     public long getId() {

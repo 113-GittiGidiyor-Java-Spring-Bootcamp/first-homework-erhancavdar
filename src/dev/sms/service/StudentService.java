@@ -80,6 +80,7 @@ public class StudentService implements StudentRepository {
             System.out.println("Successfully updated.");
         }
         catch (Exception e){
+            entityManager.getTransaction().rollback();
             e.printStackTrace();
         }
         finally {
