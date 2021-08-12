@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class ClientMock {
     public static void main(String[] args) {
-        persistTestData();
+        // persistTestData();
         if (dataUpdatable()&&dataDeletable()){
             System.out.println("CRUD operations seem to function well.");
         }
