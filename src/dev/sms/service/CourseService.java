@@ -3,7 +3,7 @@ package dev.sms.service;
 import dev.sms.model.Course;
 import dev.sms.repository.CourseRepository;
 
-import java.util.Set;
+import java.util.List;
 
 public class CourseService implements CourseRepository {
     @Override
@@ -22,17 +22,13 @@ public class CourseService implements CourseRepository {
     }
 
     @Override
-    public void update(Course course) {
+    public void update(Course course, long id) {
 
     }
 
-    @Override
-    public void update(long id) {
-
-    }
 
     @Override
-    public Set<Course> findAll() {
+    public List<Course> findAll() {
         return null;
     }
 
